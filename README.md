@@ -35,19 +35,14 @@ aws-s3-static-website-policy/
   - `policies/static-website-read-policy.json`  
 
 ### **3. Upload Your Static Website Files**
-- Use the AWS CLI or console to upload files:  
-```bash
-aws s3 sync ./my-website/ s3://your-bucket-name
+- Use the AWS CLI or console to upload files
 
-🌟 How It Works
-
+### **🌟 How It Works**
 Policy 
-
 Root-Only Access Policy:	Restricts modification, deletion, and object ACL changes to root user only	Even full-access IAM users cannot modify/delete objects
-
 Static Website Read Policy:	Allows public GET requests for static files	Website files are readable to the public
 
-🔒 Security Best Practices
+###**🔒 Security Best Practices**
 ✔️ Keep the bucket private except for s3:GetObject for public access.
 ✔️ Enable MFA Delete for extra protection.
 ✔️ Use CloudTrail to monitor access logs.

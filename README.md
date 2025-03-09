@@ -12,7 +12,7 @@ This repository contains two AWS S3 bucket policies for setting up a secure stat
 
 ---
 
-## ### 📁 **Folder Structure**  
+## 📁 **Folder Structure**  
 
 aws-s3-static-website-policy/
 ├── README.md

@@ -43,7 +43,7 @@ Root-Only Access Policy:	Restricts modification, deletion, and object ACL change
 Static Website Read Policy:	Allows public GET requests for static files	Website files are readable to the public
 
 ###**🔒 Security Best Practices**
-✔️ `Keep the bucket private except for s3:GetObject for public access.`
-✔️ `Enable MFA Delete for extra protection.`
-✔️ `Use CloudTrail to monitor access logs.`
+- `Keep the bucket private except for s3:GetObject for public access.`
+- `Enable MFA Delete for extra protection.`
+- `Use CloudTrail to monitor access logs.`
 

@@ -1,21 +1,31 @@
 {
-    "Version": "2012-10-17",
-    "Id": "RootOnlyAccessPolicy",
-    "Statement": [
-      {
-        "Sid": "DenyAllExceptRoot",
-        "Effect": "Deny",
-        "Principal": "*",  
-        "Action": "s3:*",  
-        "Resource": [
-          "arn:aws:s3:::your-bucket-name/*",  
-          "arn:aws:s3:::your-bucket-name"    
-        ],
-        "Condition": {
-          "StringNotEqualsIfExists": {
-            "aws:PrincipalArn": "arn:aws:iam::AWS_ACCOUNT_ID:root"
-          }
+  "Version": "2012-10-17", 
+  /* AWS policy language version - Use 2012-10-17 for backward compatibility */
+  "Id": "RestrictAccessToRootOnly", 
+  "Statement": [
+    {
+      "Sid": "DenyAllActionsExceptRoot",  
+      /* Deny all S3 actions unless the root user is performing them */
+      "Effect": "Deny",
+      "Principal": "*",  
+      "Action": [
+        "s3:PutObject",
+        "s3:DeleteObject",
+        "s3:PutObjectAcl",
+        "s3:DeleteObjectVersion",
+        "s3:PutBucketAcl",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::your-bucket-name/*",  
+        "arn:aws:s3:::your-bucket-name"    
+      ],
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:PrincipalArn": "arn:aws:iam::AWS_ACCOUNT_ID:root"
+          /* Only the root user can perform these actions */
         }
       }
-    ]
-  }
+    }
+  ]
+}
